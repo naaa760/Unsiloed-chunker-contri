@@ -1,150 +1,197 @@
+<!-- 
+SEO Meta Description: 
+unsiloed-parser - Open-source Python library for intelligent document chunking and parsing. 
+Transform PDFs, DOCX, images, and web content into LLM-ready chunks using semantic AI, 
+YOLO segmentation, and OCR. Perfect for RAG pipelines, AI chatbots, and workflow automation.
+Keywords: document chunker, AI RAG tools, Python LLM preprocessing, semantic chunking, 
+PDF parser, OCR extraction, document AI, text chunking library
+-->
+
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/f9964a81-0b78-4880-8f83-6b9fb0407aea" alt="Logo" width="200">
+  <img src="https://github.com/user-attachments/assets/f9964a81-0b78-4880-8f83-6b9fb0407aea" alt="Unsiloed Parser Logo - AI-Powered Document Chunking and Parsing Tool for LLM and RAG Applications" width="200">
 </p>
 
 
 <div align="center">
 
-# Unsiloed AI | AI Agents for Unstructured Financial Data
+# Unsiloed Parser
 
-**Transform unstructured data into LLM-ready structured assets for RAG and workflow automation**
+### AI-Powered Document Processing for LLMs
+
+**Transform unstructured data into structured LLM assets for RAG and automation.**
+
+<p align="center">
+  <img src="https://img.shields.io/pypi/v/unsiloed-parser?style=flat-square" alt="PyPI Version">
+  <img src="https://img.shields.io/pypi/pyversions/unsiloed-parser?style=flat-square" alt="Python Version 3.8+">
+  <img src="https://img.shields.io/github/license/Unsiloed-AI/Unsiloed-Parser?style=flat-square" alt="Apache 2.0 License">
+  <img src="https://img.shields.io/github/stars/Unsiloed-AI/Unsiloed-Parser?style=flat-square" alt="GitHub Stars">
+</p>
+
+**unsiloed-parser** is an open-source Python library for **intelligent 
+document chunking** and **AI-powered text extraction**. 
+
+
+Perfect for building **RAG pipelines**, AI chatbots, knowledge bases, 
+and automated document processing workflows.
+
+**🔑 Keywords:** 
+`semantic chunking` · `AI RAG tools` · `Python LLM preprocessing` · 
+`PDF parser` · `OCR library` · `document AI`
 
 ---
 
 ### 🚀 Quick Links
 
 <p align="center">
-  <a href="https://discord.com/channels/1385519607229583370/1385519607229583373">
-    <img src="https://img.shields.io/badge/Discord-Join%20Community-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord">
-  </a>
   <a href="https://www.unsiloed-ai.com/">
-    <img src="https://img.shields.io/badge/Try%20It%20Out-Live%20Demo-FF6B6B?style=for-the-badge&logo=rocket&logoColor=white" alt="Try It Out">
+    <img src="https://img.shields.io/badge/Try%20It%20Out-Live%20Demo-FF6B6B?style=for-the-badge&logo=rocket&logoColor=white" alt="Try Unsiloed Parser Live Demo - Interactive Document Chunking Tool">
   </a>
   <a href="#-connect-with-us">
-    <img src="https://img.shields.io/badge/Contact%20Us-Get%20In%20Touch-4ECDC4?style=for-the-badge&logo=mail&logoColor=white" alt="Contact Us">
+    <img src="https://img.shields.io/badge/Contact%20Us-Get%20In%20Touch-4ECDC4?style=for-the-badge&logo=mail&logoColor=white" alt="Contact Unsiloed AI Team - Get Support for Document Processing">
   </a>
 </p>
-
-
 
 ---
 
 </div>
 
-##  Features
+##  Table of Contents
 
-### Document Chunking
-- **Supported File Types**: PDF, DOCX, PPTX, HTML, Markdown, Images, Chat Logs, Webpages
-- **Chunking Strategies**:
-  - **Fixed Size**: Splits text into chunks of specified size with optional overlap
-  - **Page-based**: Splits PDF by pages (PDF only, falls back to paragraph for other file types)
-  - **Semantic**: Uses YOLO for segmentation and VLM + OCR for intelligent extraction of text, images, and tables — followed by semantic grouping for clean, contextual output.
-  - **Paragraph**: Splits text by paragraphs
-  - **Heading**: Splits text by identified headings
-  - **Hierarchical**: Advanced multi-level chunking with parent-child relationships
+- [Features](#-features)
+  - [Document Chunking](#-document-chunking)
+  - [Local LLM Model Support](#-local-llm-model-support)
+  - [LaTeX Support](#-latex-support)
+  - [Multi-lingual Support](#-multi-lingual-support)
+  - [Extended File Format Support](#-extended-file-format-support)
+- [Configuration](#️-configuration)
+- [Constraints & Limitations](#️-constraints--limitations)
+- [Request Parameters](#-request-parameters)
+- [Installation](#-installation)
+- [Environment Setup](#-environment-setup)
+- [Usage](#-usage)
+  - [Supported File Types](#-supported-file-types)
+  - [Chunking Strategies](#-chunking-strategies)
+  - [Credential Options](#--credential-options)
+- [Development Setup](#️-development-setup)
+- [Contributing](#-contributing)
+- [License](#-license)
+- [Community and Support](#-community-and-support)
+- [Connect with Us](#-connect-with-us)
 
-### Local LLM Model Support
-- **Modular LLM Selection**: Choose from multiple LLM providers and models
-- **Local Model Integration**: Support for locally hosted models (Ollama)
-- **Provider Options**: OpenAI, Anthropic, Google, Cohere, and custom endpoints
-- **Model Flexibility**: Switch between different models for different chunking strategies
+---
 
-### LaTeX Support
-- **Mathematical Equations**: Full LaTeX rendering and processing support
-- **Scientific Documents**: Optimized for academic and technical papers
-- **Formula Extraction**: Intelligent extraction and preservation of mathematical formulas
-- **Equation Chunking**: Maintains mathematical context across chunks
+## ✨ Features
 
-### Multi-lingual Support
-- **Language Detection**: Automatic language identification
-- **Parameterized Processing**: Language-specific chunking strategies
-- **Unicode Support**: Full support for non-Latin scripts
-- **Localized Chunking**: Language-aware paragraph and sentence boundaries
+### 📄 Document Chunking
 
-### Extended File Format Support
-- **Images**: JPG, PNG, TIFF, BMP with OCR capabilities
-- **Chat Logs**: WhatsApp, Slack, Discord, Teams conversation processing
-- **Webpages**: Direct URL processing with content extraction
-- **Spreadsheets**: Excel, CSV with structured data extraction
+**Supported File Types:** PDF, DOCX, PPTX, HTML, Markdown, 
+Images, Webpages
 
-### Performance & Optimization
-- **Page Alignment**: Optimized text alignment and formatting preservation
+**Chunking Strategies:**
+  - **Fixed Size** : Splits text into chunks of specified size 
+    with optional overlap
+  - **Page-based** : Splits PDF by pages (PDF only, falls back 
+    to paragraph for other file types)
+  - **Semantic** : Uses YOLO for segmentation and VLM + OCR for 
+    intelligent extraction of text, images, and tables — followed 
+    by **semantic grouping** for clean, contextual output
+  - **Paragraph** : Splits text by paragraphs
+  - **Heading** : Splits text by identified headings
+  - **Hierarchical** : Advanced multi-level chunking with 
+    parent-child relationships
+
+### 🤖 Local LLM Model Support
+
+- **Modular LLM Selection**: Choose from multiple LLM providers 
+  and models
+- **Local Model Integration**: Support for locally hosted models 
+  (Ollama)
+- **Provider Options**: OpenAI, Anthropic, Google, Cohere, and 
+  custom endpoints
+- **Model Flexibility**: Switch between different models for 
+  different chunking strategies
+
+### 🔢 LaTeX Support
+
+- **Mathematical Equations**: Full LaTeX rendering and processing
+- **Scientific Documents**: Optimized for academic and technical 
+  papers
+- **Formula Extraction**: Intelligent extraction and preservation 
+  of mathematical formulas
+- **Equation Chunking**: Maintains mathematical context across 
+  chunks
+
+### 🌍 Multi-lingual Support
 
 
 
-### Agentic RAG Retrieval System
-- **Multi-hop Queries**: Decomposes complex queries into simpler sub-queries and performs iterative retrieval
-- **Negation Handling**: Processes queries with negation words (not, without, except) effectively
-- **Vector Search**: Uses OpenAI embeddings for semantic similarity search
-- **Document Integration**: Seamlessly works with existing chunking strategies
-- **Agentic Behavior**: Uses LLM reasoning to generate follow-up queries and improve retrieval
+### 📁 Extended File Format Support
 
-###  OpenAI Integration
-- Uses OpenAI GPT-4o for semantic chunking
-- Uses Unsiloed finetuned Yolo model for segmentation (https://huggingface.co/mubashiross/Unsiloed_YOLO_MODEL)
-- Handles authentication via API key from environment variables
-- Implements automatic retries and timeout handling
-- Provides structured JSON output for semantic chunks
+- **Images** : JPG, PNG, TIFF, BMP with **OCR capabilities**
+- **Webpages** : Direct URL processing with content extraction
+- **Spreadsheets** : Excel, CSV with structured data extraction
 
-### Parallel Processing
-- Multi-threaded processing for improved performance
-- Parallel page extraction from PDFs
-- Distributes processing of large documents across multiple threads
-
-###  Document Processing
-- Extracts text from PDF, DOCX, and PPTX files
-- Handles image encoding for vision-based models
-- Generates extraction prompts for structured data extraction
-
-## Configuration
+## ⚙️ Configuration
 
 ### Environmental Variables
-- `OPENAI_API_KEY`: Your OpenAI API key
-
-## Constraints & Limitations
-
-### File Handling
-- Temporary files are created during processing and deleted afterward
-- Files are processed in-memory where possible
-
-### Text Processing
-- Long text (>25,000 characters) is automatically split and processed in parallel for semantic chunking
-- Maximum token limit of 4000 for OpenAI responses
-
-### API Constraints
-- Request timeout set to 60 seconds
-- Maximum of 3 retries for OpenAI API calls
-
-##  Request Parameters
-
-### Document Chunking Endpoint
-- `document_file`: The document file to process (PDF, DOCX, PPTX)
-- `strategy`: Chunking strategy to use (default: "semantic")
-  - Options: "fixed", "page", "semantic", "paragraph", "heading"
-- `chunk_size`: Size of chunks for fixed strategy in characters (default: 1000)
-- `overlap`: Overlap size for fixed strategy in characters (default: 100)
+- `OPENAI_API_KEY`: Your OpenAI API key for **semantic chunking**
 
 
-##  Installation
+## 📦 Installation
+
+[![PyPI version](https://badge.fury.io/py/unsiloed-parser.svg)](https://badge.fury.io/py/unsiloed-parser)
 
 ### Using pip
+
+💡 **Tip:** We recommend installing in a virtual environment for 
+project isolation.
+
 ```bash
-pip install unsiloed
+# Create a virtual environment (optional but recommended)
+python -m venv venv
+
+# Activate the virtual environment
+# On macOS/Linux:
+source venv/bin/activate
+# On Windows:
+# venv\Scripts\activate
+
+# Install unsiloed-parser
+pip install unsiloed-parser
 ```
 
-
 ### Requirements
-Unsiloed requires Python 3.8 or higher and has the following dependencies:
-- openai
-- PyPDF2
-- python-docx
-- python-pptx
-- fastapi
-- python-multipart
 
-##  Environment Setup
+unsiloed-parser requires Python 3.8 or higher and has the following dependencies:
 
-Before using Unsiloed, set up your OpenAI API key:
+**Core Dependencies:**
+- `openai` - OpenAI API integration
+- `PyPDF2` - PDF processing
+- `python-docx` - Word document processing
+- `python-pptx` - PowerPoint processing
+- `Pillow` - Image processing
+- `pytesseract` - OCR capabilities
+- `aiohttp` - Async HTTP client
+- `requests` - HTTP library
+- `beautifulsoup4` - HTML parsing
+- `validators` - URL validation
+
+**AI & ML:**
+- `ultralytics` - YOLO model integration
+- `opencv-python-headless` - Computer vision
+- `numpy` - Numerical computing
+
+**Utilities:**
+- `python-dotenv` - Environment variable management
+- `markdown` - Markdown processing
+- `lxml` - XML/HTML parsing
+- `html2text` - HTML to text conversion
+- `pdf2image` - PDF to image conversion
+
+## 🔐 Environment Setup
+
+Before using unsiloed-parser, set up your **OpenAI API key** for 
+semantic chunking:
 
 ### Using environment variables
 ```bash
@@ -160,7 +207,7 @@ $env:OPENAI_API_KEY="your-api-key-here"
 
 ### Using a .env file
 Create a `.env` file in your project directory:
-```
+```bash
 OPENAI_API_KEY=your-api-key-here
 ```
 
@@ -170,15 +217,14 @@ from dotenv import load_dotenv
 load_dotenv()  # This loads the variables from .env
 ```
 
-## 🔍 Usage Example
+## 💻 Usage
 
-### Python
+### Example 1: Semantic Chunking
 
 ```python
 import os
 import Unsiloed
 
-# Example 1: Semantic chunking (default)
 result = Unsiloed.process_sync({
     "filePath": "./test.pdf",
     "credentials": {
@@ -189,8 +235,80 @@ result = Unsiloed.process_sync({
     "overlap": 100
 })
 
+print(result)
+```
 
-# Example 2: Processing HTML files
+**Example Output (Semantic Chunking):**
+```json
+{
+  "file_type": "pdf",
+  "strategy": "semantic",
+  "total_chunks": 98,
+  "avg_chunk_size": 305.05,
+  "chunks": [
+    {
+      "text": "Introduction to Machine Learning",
+      "metadata": {
+        "page_number": 1,
+        "semantic_group_index": 0,
+        "element_count": 1,
+        "primary_element_type": "Section-header",
+        "avg_confidence": 0.92,
+        "combined_bbox": [100, 50, 500, 120],
+        "strategy": "semantic_openai_boundary_detection",
+        "split_confidence": 0.95,
+        "reading_order_start": 0,
+        "reading_order_end": 0,
+        "constituent_elements": [
+          {
+            "element_type": "Section-header",
+            "bbox": [100, 50, 500, 120],
+            "reading_order": "page_1_element_0"
+          }
+        ]
+      }
+    },
+    {
+      "text": "Machine learning is a subset of artificial intelligence that enables systems to learn and improve from experience...",
+      "metadata": {
+        "page_number": 1,
+        "semantic_group_index": 1,
+        "element_count": 2,
+        "primary_element_type": "Text",
+        "avg_confidence": 0.89,
+        "combined_bbox": [100, 150, 800, 400]
+      }
+    },
+    {
+      "text": "The image shows a neural network architecture with multiple layers...",
+      "metadata": {
+        "page_number": 2,
+        "semantic_group_index": 2,
+        "primary_element_type": "Picture",
+        "avg_confidence": 0.94,
+        "combined_bbox": [100, 200, 700, 600]
+      }
+    },
+    {
+      "text": "```markdown\n| Model | Accuracy | Speed |\n|-------|----------|-------|\n| CNN   | 95%      | Fast  |\n```",
+      "metadata": {
+        "page_number": 3,
+        "semantic_group_index": 3,
+        "primary_element_type": "Table",
+        "primary_content_type": "table",
+        "avg_confidence": 0.91,
+        "combined_bbox": [150, 100, 850, 500]
+      }
+    }
+  ]
+}
+```
+
+### Example 2: Processing HTML Files 🌐
+
+```python
+import Unsiloed
+
 html_result = Unsiloed.process_sync({
     "filePath": "./webpage.html",
     "credentials": {
@@ -198,8 +316,13 @@ html_result = Unsiloed.process_sync({
     },
     "strategy": "paragraph"
 })
+```
 
-# Example 3: Processing Markdown files
+### Example 3: Processing Markdown Files 📝
+
+```python
+import Unsiloed
+
 markdown_result = Unsiloed.process_sync({
     "filePath": "./README.md",
     "credentials": {
@@ -207,8 +330,13 @@ markdown_result = Unsiloed.process_sync({
     },
     "strategy": "heading"
 })
+```
 
-# Example 4: Processing website URLs
+### Example 4: Processing Website URLs 🔗
+
+```python
+import Unsiloed
+
 url_result = Unsiloed.process_sync({
     "filePath": "https://example.com",
     "credentials": {
@@ -216,11 +344,13 @@ url_result = Unsiloed.process_sync({
     },
     "strategy": "paragraph"
 })
+```
 
+### Example 5: Using Async Version ⚡
 
-
-# Example 5: Using async version
+```python
 import asyncio
+import Unsiloed
 
 async def async_processing():
     result = await Unsiloed.process({
@@ -236,66 +366,73 @@ async def async_processing():
 async_result = asyncio.run(async_processing())
 ```
 
-### Agentic RAG Retrieval Usage
 
-```python
-import os
-import Unsiloed
 
-# Set up OpenAI API key
-os.environ["OPENAI_API_KEY"] = "your-api-key-here"
-
-# Initialize RAG system
-rag = Unsiloed.services.rag.RAGSystem()
-
-# Add documents to the system
-documents = ["./document1.pdf", "./document2.docx"]
-rag.add_documents_from_files(documents, strategy="semantic")
-
-# Query with multi-hop capability (great for complex questions)
-result = rag.query("How do I install Unsiloed and configure it for document processing?", max_hops=3)
-
-print(f"Found {result['total_results']} results across {result['total_steps']} search steps")
-
-# Query with negation handling
-result = rag.query("What are the features of Unsiloed that are not related to file processing?")
-
-# Simple query
-result = rag.query("What are the main features of Unsiloed?")
-
-# Using the convenience function
-result = Unsiloed.services.rag.rag_query(
-    "What is the main purpose of Unsiloed?",
-    documents=["./README.md"],
-    max_hops=2
-)
+try:
+    result = Unsiloed.process_sync({
+        "filePath": "./document.pdf",
+        "credentials": {
+            "apiKey": os.environ.get("OPENAI_API_KEY")
+        },
+        "strategy": "semantic"
+    })
+    print(f"Successfully processed {len(result['chunks'])} chunks")
+    
+except FileNotFoundError:
+    print("Error: File not found. Please check the file path.")
+    
+except ValueError as e:
+    print(f"Error: Invalid configuration - {e}")
+    
+except Exception as e:
+    print(f"An unexpected error occurred: {e}")
 ```
 
-### Supported File Types
+### 📂 Supported File Types
 
-- **PDF files** (.pdf) - All chunking strategies supported
-- **Word documents** (.docx) - All strategies except page-based
-- **PowerPoint presentations** (.pptx) - All strategies except page-based  
-- **HTML files** (.html, .htm) - All strategies except page-based
-- **Markdown files** (.md, .markdown) - All strategies except page-based
-- **Website URLs** (http://, https://) - Automatically detected and processed
-- **Images** (.jpg, .png, .tiff, .bmp) - OCR-powered text extraction
-- **Chat Logs** - WhatsApp, Slack, Discord, Teams conversation files
-- **Spreadsheets** (.xlsx, .csv) - Structured data extraction and chunking
-- **Archives** (.zip, .rar) - Batch processing of contained documents
+Transform any document format into **LLM-ready chunks** with 
+**intelligent parsing** and **extraction**.
 
-### Chunking Strategies
+| File Type | Extensions | Supported Strategies | Key Features | Use Cases |
+|-----------|-----------|---------------------|--------------|-----------|
+| **PDF Documents** | `.pdf` | All strategies (semantic, fixed, page, paragraph, heading, hierarchical) | PDF chunking for RAG, page-level extraction, text and image parsing | Research papers, reports, ebooks, invoices |
+| **Word Documents** | `.docx` | All except page-based | Document parsing, style-aware chunking, table extraction | Business documents, contracts, articles |
+| **PowerPoint** | `.pptx` | All except page-based | Slide-by-slide processing, text and image extraction | Presentations, training materials, pitch decks |
+| **HTML Files** | `.html`, `.htm` | All except page-based | Web content extraction, semantic HTML parsing | Web pages, documentation, blog posts |
+| **Markdown** | `.md`, `.markdown` | All except page-based | Heading-based structure, code block preservation | Technical docs, READMEs, wikis |
+| **Web URLs** | `http://`, `https://` | All except page-based | Live webpage scraping, dynamic content extraction | Real-time content processing, web monitoring |
+| **Images** | `.jpg`, `.png`, `.tiff`, `.bmp` | Semantic, fixed, paragraph | OCR for images, handwriting recognition, visual text extraction | Scanned documents, photos, screenshots |
+| **Spreadsheets** | `.xlsx`, `.csv` | Semantic, fixed, paragraph | Structured data extraction, table parsing, cell-level analysis | Data tables, reports, inventories |
 
-- **semantic**: AI-powered semantic chunking (requires OpenAI API key)
-- **fixed**: Fixed-size chunks with configurable overlap
-- **page**: Page-based chunking (PDF only)
-- **paragraph**: Paragraph-based chunking
-- **heading**: Heading-based chunking
-- **hierarchical**: Advanced multi-level chunking with parent-child relationships
+**SEO Keywords:** PDF chunking for RAG, OCR for images, document parsing for LLM, semantic document chunking, AI-powered text extraction, webpage to text conversion, DOCX parsing, structured data extraction
 
-### Credential Options
+### 🎯 Chunking Strategies
 
-You can provide credentials in three ways:
+Choose the optimal strategy for your **document processing needs** 
+and **RAG pipeline**.
+
+| Strategy | Best For | How It Works | API Key Required | Output Format |
+|----------|----------|--------------|------------------|---------------|
+| **Semantic** | RAG pipelines, AI applications, context-aware chunking | Uses YOLO segmentation + VLM + OCR to intelligently identify and group related content (text, images, tables) | ✅ Yes (OpenAI) | Structured chunks with semantic context, metadata, and type classification |
+| **Fixed** | Token-limited LLMs, consistent chunk sizes, embeddings | Splits text into uniform chunks with configurable size and overlap | ❌ No | Fixed-size text chunks with character/word count control |
+| **Page** | PDF documents, page-level processing | Extracts content page-by-page, preserving document structure | ❌ No | One chunk per page with page numbers |
+| **Paragraph** | Natural text breaks, readability | Splits on paragraph boundaries using natural language structure | ❌ No | Paragraph-level chunks maintaining context |
+| **Heading** | Hierarchical documents, documentation | Organizes content by heading structure (H1, H2, H3, etc.) | ❌ No | Section-based chunks with heading hierarchy |
+| **Hierarchical** | Complex documents, parent-child relationships | Advanced multi-level chunking with nested structure and relationships | ❌ No | Nested chunks with parent-child metadata |
+
+**💡 Performance Tips:**
+- Use **semantic**  for best RAG results and AI-powered content 
+  understanding
+- Use **fixed**  for consistent embedding sizes and token 
+  management
+- Use **heading**  for technical documentation and structured 
+  content
+- Use **hierarchical**  for complex documents requiring context 
+  preservation
+
+###  Credential Options
+
+You can provide credentials in **three ways**:
 
 1. **In the options** (recommended):
 ```python
@@ -314,11 +451,11 @@ export OPENAI_API_KEY="your-openai-api-key"
 ```
 
 3. **Using .env file**:
-```
+```bash
 OPENAI_API_KEY=your-openai-api-key
 ```
 
-##  Development Setup
+## 🛠️ Development Setup
 
 ### Prerequisites
 
@@ -330,8 +467,8 @@ OPENAI_API_KEY=your-openai-api-key
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/Unsiloed-opensource/Unsiloed.git
-cd Unsiloed
+git clone https://github.com/Unsiloed-AI/Unsiloed-Parser.git
+cd Unsiloed-Parser
 ```
 
 2. Create a virtual environment:
@@ -357,7 +494,7 @@ pip install -r requirements.txt
 echo "OPENAI_API_KEY=your-api-key-here" > .env
 ```
 
-5. Run the FastAPI server locally:
+5. Run the FastAPI server locally (if applicable):
 ```bash
 uvicorn Unsiloed.app:app --reload
 ```
@@ -365,25 +502,24 @@ uvicorn Unsiloed.app:app --reload
 6. Access the API documentation:
 Open your browser and go to `http://localhost:8000/docs`
 
+## 🤝 Contributing
 
+We welcome contributions to **unsiloed-parser**! 
 
-##  Contributing
-
-We welcome contributions to Unsiloed! Here's how you can help:
+Here's how you can help:
 
 ### Setting Up Development Environment
 
 1. Fork the repository and clone your fork:
 ```bash
-git clone https://github.com/YOUR_USERNAME/Unsiloed.git
-cd Unsiloed
+git clone https://github.com/YOUR_USERNAME/Unsiloed-Parser.git
+cd Unsiloed-Parser
 ```
 
 2. Install development dependencies:
 ```bash
 pip install -r requirements.txt
 ```
-
 
 ### Making Changes
 
@@ -394,18 +530,17 @@ git checkout -b feature/your-feature-name
 
 2. Make your changes and write tests if applicable
 
-
-4. Commit your changes:
+3. Commit your changes:
 ```bash
 git commit -m "Add your meaningful commit message here"
 ```
 
-5. Push to your fork:
+4. Push to your fork:
 ```bash
 git push origin feature/your-feature-name
 ```
 
-6. Create a Pull Request from your fork to the main repository
+5. Create a Pull Request from your fork to the main repository
 
 ### Code Style and Standards
 
@@ -414,24 +549,23 @@ git push origin feature/your-feature-name
 - Document functions and classes with docstrings
 - Write tests for new features
 
+## 📄 License
 
-##  License
+This project is licensed under the **Apache-2.0 License** - see 
+the [LICENSE](LICENSE) file for details.
 
-This project is licensed under the Apache-2.0 License - see the [LICENSE](LICENSE) file for details.
-
-##  Community and Support
+## 🌟 Community and Support
 
 ### Join the Community
 
-- **GitHub Discussions**: For questions, ideas, and discussions
-- **Issues**: For bug reports and feature requests
-- **Pull Requests**: For contributing to the codebase
-
+- **GitHub Discussions** 💬: For questions, ideas, and discussions
+- **Issues** 🐛: For bug reports and feature requests
+- **Pull Requests** 🔧: For contributing to the codebase
 
 ### Staying Updated
 
-- **Star** the repository to show support
-- **Watch** for notification on new releases
+- **Star** ⭐ the repository to show support
+- **Watch** 👀 for notification on new releases
 
 </div>
 
@@ -444,7 +578,7 @@ This project is licensed under the Apache-2.0 License - see the [LICENSE](LICENS
 ### Ready to Transform Your Data? Let's Connect! 🚀
 
 <p align="center">
-  <img src="https://img.shields.io/badge/We're%20Here%20to%20Help-Let's%20Chat-brightgreen?style=for-the-badge" alt="We're Here to Help">
+  <img src="https://img.shields.io/badge/We're%20Here%20to%20Help-Let's%20Chat-brightgreen?style=for-the-badge" alt="Unsiloed AI Support - We're Here to Help with Your Document Processing Needs">
 </p>
 
 </div>
@@ -459,7 +593,7 @@ This project is licensed under the Apache-2.0 License - see the [LICENSE](LICENS
 [hello@unsiloed-ai.com](mailto:hello@unsiloed-ai.com)
 
 <a href="mailto:hello@unsiloed-ai.com">
-<img src="https://img.shields.io/badge/Send%20Email-hello@unsiloed--ai.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email">
+<img src="https://img.shields.io/badge/Send%20Email-hello@unsiloed--ai.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email Unsiloed AI - Get Support for Document Chunking and RAG Solutions">
 </a>
 
 </td>
@@ -468,10 +602,10 @@ This project is licensed under the Apache-2.0 License - see the [LICENSE](LICENS
 ### 📅 Schedule a Call
 **Book a discovery session**
 
-[Schedule with our team](https://calendly.com/aman-unsiloed-ai/unsiloed-ai-discovery-call?month=2025-06)
+[Schedule with our team](https://calendly.com/aman-unsiloed-ai/unsiloed-ai-discovery-call)
 
-<a href="https://calendly.com/aman-unsiloed-ai/unsiloed-ai-discovery-call?month=2025-06">
-<img src="https://img.shields.io/badge/Book%20a%20Call-Calendly-00A2FF?style=for-the-badge&logo=calendly&logoColor=white" alt="Schedule Call">
+<a href="https://calendly.com/aman-unsiloed-ai/unsiloed-ai-discovery-call">
+<img src="https://img.shields.io/badge/Book%20a%20Call-Calendly-00A2FF?style=for-the-badge&logo=calendly&logoColor=white" alt="Schedule a Call with Unsiloed AI - Book Discovery Session for Document Processing Solutions">
 </a>
 
 </td>
@@ -483,7 +617,7 @@ This project is licensed under the Apache-2.0 License - see the [LICENSE](LICENS
 [www.unsiloed-ai.com](https://www.unsiloed-ai.com/)
 
 <a href="https://www.unsiloed-ai.com/">
-<img src="https://img.shields.io/badge/Visit%20Website-unsiloed--ai.com-FF6B6B?style=for-the-badge&logo=web&logoColor=white" alt="Website">
+<img src="https://img.shields.io/badge/Visit%20Website-unsiloed--ai.com-FF6B6B?style=for-the-badge&logo=web&logoColor=white" alt="Visit Unsiloed AI Website - Learn More About Document Processing and RAG Solutions">
 </a>
 
 </td>
@@ -492,26 +626,16 @@ This project is licensed under the Apache-2.0 License - see the [LICENSE](LICENS
 
 <div align="center">
 
-### 💬 Join Our Community
-
-<p align="center">
-  <a href="https://discord.com/channels/1385519607229583370/1385519607229583373">
-    <img src="https://img.shields.io/badge/Discord-Join%20Our%20Community-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord Community">
-  </a>
-</p>
-
-**Connect with fellow developers, share ideas, and get support from our community!**
-
----
 
 <p align="center">
   <strong>Made with ❤️ by the Unsiloed AI Team</strong>
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Built%20for-Developers-blue?style=flat-square" alt="Built for Developers">
-  <img src="https://img.shields.io/badge/Open%20Source-Apache--2.0-green?style=flat-square" alt="Open Source">
-  <img src="https://img.shields.io/badge/AI%20Powered-GPT--4-orange?style=flat-square" alt="AI Powered">
+  <img src="https://img.shields.io/badge/Built%20for-Developers-blue?style=flat-square" alt="Built for Python Developers and Data Scientists">
+  <img src="https://img.shields.io/badge/Open%20Source-Apache--2.0-green?style=flat-square" alt="Open Source Apache 2.0 License - Free Document Chunking Library">
+  <img src="https://img.shields.io/badge/AI%20Powered-GPT--4-orange?style=flat-square" alt="AI Powered by GPT-4 and YOLO for Intelligent Document Processing">
 </p>
+
 
 </div>
